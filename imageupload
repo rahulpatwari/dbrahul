@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
 	$newname=uniqid().".".$extension;
 	$target="images/".$newname;
     move_uploaded_file($temp,$target);
-    $sql="INSERT INTO `cvdata`(`id`, `cv_resume`) VALUES(NULL,`".$newname."`)";
+    $sql="INSERT INTO `cvdata`(`id`, `cv_resume`) VALUES(NULL,'".$newname."')";
      if (mysqli_query($con, $sql)) {
            echo "data insert";
         }
