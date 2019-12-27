@@ -1,0 +1,27 @@
+<?php 
+$con=mysqli_connect("localhost","root","","cv");
+// Check connection
+if (mysqli_connect_errno())
+  {
+  echo "Failed to connect : " . mysqli_connect_error();
+  }
+ 
+if (isset($_POST['submit'])) {
+	$neme=$_FILES['image']['name'];
+	$temp=$_FILES['image']['tmp_name'];
+	$extension=explode('.',$neme);
+	$extension =strtolower(end($extension));
+	$newname=uniqid().".".$extension;
+	$target="images/".$newname;
+    move_uploaded_file($temp,$target);
+    $sql="INSERT INTO `cvdata`(`id`, `cv_resume`) VALUES(NULL,`".$newname."`)";
+     if (mysqli_query($con, $sql)) {
+           echo "data insert";
+        }
+        else{
+            echo "data not insert";
+        } 
+}
+
+
+?>
