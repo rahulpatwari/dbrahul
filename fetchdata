@@ -1,0 +1,11 @@
+ <?php
+
+              require_once('autho/data-autho.php');
+
+              $s_no=1;
+
+              $sqls = mysqli_query($con,"Select * from `access`"); 
+
+              while($datas = mysqli_fetch_array($sqls)){ ?>
+              
+              <?php } ?>
